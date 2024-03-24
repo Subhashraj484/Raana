@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         inputReader = InstanceManager.Instance.inputReader;
@@ -53,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDirection = GetMovementDirection();
         
-        characterController.Move(verticalVelocity*Time.deltaTime);
         characterController.Move(currentSpeed * Time.deltaTime * moveDirection);
+        characterController.Move(verticalVelocity*Time.deltaTime);
 
         float movementMagnitude = inputReader.InputDirection.normalized.magnitude;
         float movementBlendFloat = Mathf.Clamp(movementMagnitude,0,maxMovementBlend);
@@ -122,7 +123,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 GetMovementDirection()
     {
         Vector3 forward = mainCamera.transform.forward;
+        forward.y = 0;
         Vector3 right = mainCamera.transform.right;
+        right.y = 0;
         if(inputReader.InputDirection.magnitude > 0.1f)
         {
             if(inputReader.Sprint)

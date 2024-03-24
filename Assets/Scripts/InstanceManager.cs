@@ -18,5 +18,6 @@ public class InstanceManager : MonoBehaviour
     
     public InputReader inputReader;
     public TargetSystem targetSystem;
+    public Transform player;
 
 }

@@ -5,6 +5,9 @@ public class InputReader : MonoBehaviour
     Vector2 inputDirection ;
     bool sprint;
     bool jump;
+    bool aim;
+
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -23,10 +26,13 @@ public class InputReader : MonoBehaviour
             jump = false;
         }
 
+        aim = Input.GetMouseButtonDown(0);
+
 
     }
 
     public Vector2 InputDirection => inputDirection;
     public bool Sprint => sprint;
     public bool Jump => jump;
+    public bool Aim => aim;
 }
