@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class InputReader : MonoBehaviour
@@ -6,6 +7,8 @@ public class InputReader : MonoBehaviour
     bool sprint;
     bool jump;
     bool aim;
+    public event Action OnAim;
+    public event Action OnAimRelease;
 
 
     void Update()
@@ -26,7 +29,14 @@ public class InputReader : MonoBehaviour
             jump = false;
         }
 
-        aim = Input.GetMouseButtonDown(0);
+        if(Input.GetMouseButtonDown(0))
+        {
+            OnAim?.Invoke();
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            OnAimRelease?.Invoke();
+        }
 
 
     }

@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 [RequireComponent(typeof(CharacterController) , typeof(Animator))]
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 verticalVelocity = Vector3.zero;
     float maxMovementBlend = 0.5f;
     float crossfadeTime = 0.1f;
+    Target target;
 
     void Start()
     {
@@ -43,9 +45,13 @@ public class PlayerMovement : MonoBehaviour
         initialVelocity = (2*maxJumpHeight)/timeToApex;
 
         animator.CrossFadeInFixedTime(Movement , crossfadeTime);
+        inputReader.OnAim += OnAim;
+        inputReader.OnAimRelease += OnAimRelease;
 
 
     }
+
+
 
     private void Update() {
 
@@ -70,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             rotationSpeed*Time.deltaTime);
 
         }
+
+
     }
 
 
@@ -146,5 +154,22 @@ public class PlayerMovement : MonoBehaviour
 
 
         return  forward*inputReader.InputDirection.y + right*inputReader.InputDirection.x ;
+    }
+
+    private void OnAim()
+    {
+        target = InstanceManager.Instance.targetSystem.GetColsestTarget();
+        if(target == null) return;
+        
+        target.StartToFill();
+        
+    }
+
+    private void OnAimRelease()
+    {
+        if(target == null) return;
+
+        target.StopFill();
+        target = null;
     }
 }

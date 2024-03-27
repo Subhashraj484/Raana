@@ -18,11 +18,18 @@ public class TargetSystem : MonoBehaviour
     }
 
     private void Update() {
+        
         if(targets.Count <= 0) 
         {
             closesttarget = null;
             return;
         }
+
+        // if(instanceManager.inputReader.Aim && closesttarget != null)
+        // {
+        //     Debug.Log(closesttarget);
+        //     return;
+        // }
         
         float temp = Mathf.Infinity;
 
@@ -62,6 +69,11 @@ public class TargetSystem : MonoBehaviour
         Vector3 targetScreenPosition = mainCamera.WorldToScreenPoint(target.transform.position);
         Vector3 centerScreenPosition = new Vector3(Screen.width / 2f, Screen.height / 2f, targetScreenPosition.z);
         return Vector3.Distance(targetScreenPosition, centerScreenPosition);
+    }
+
+    public Target GetColsestTarget()
+    {
+        return closesttarget;
     }
 
     

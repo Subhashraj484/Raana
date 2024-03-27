@@ -97,12 +97,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   sprintSpeed: 20
-  rotationSpeed: 100
+  rotationSpeed: 600
   groundlayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheckRadius: 0.1
-  groundCheckYOffset: 0
+  groundCheckYOffset: -0.02
   maxJumpHeight: 1
   jumpTime: 1
 --- !u!1 &966686976953381543
