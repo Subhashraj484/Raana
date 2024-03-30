@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float groundCheckYOffset = 0.5f;
     [SerializeField] float maxJumpHeight = 5f;
     [SerializeField] float jumpTime = 0.75f;
+    [SerializeField] float blendFactorDampTime = 0.1f;
 
     float gravity = -9.8f;
     float initialVelocity;
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         float movementMagnitude = inputReader.InputDirection.normalized.magnitude;
         float movementBlendFloat = Mathf.Clamp(movementMagnitude,0,maxMovementBlend);
 
-        animator.SetFloat(MovementBlend , movementBlendFloat);
+        animator.SetFloat(MovementBlend , movementBlendFloat , blendFactorDampTime , Time.deltaTime);
 
         if(inputReader.InputDirection.magnitude > 0.1f)
         {
