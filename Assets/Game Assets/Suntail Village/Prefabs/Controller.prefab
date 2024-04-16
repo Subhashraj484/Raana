@@ -28,10 +28,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 353491034048690084}
   m_Father: {fileID: 8948507211155965556}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -102,13 +103,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3607566704254878471}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3810384679795191530}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &5546414005136730441
 CharacterController:
@@ -118,9 +120,17 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3607566704254878471}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 1.65
   m_Radius: 0.3
   m_SlopeLimit: 45
@@ -237,88 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4333728ea1b69e0468101e0dae4ae6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3.2
+  movementSpeed: 0
+  jumpSpeed: 0
   runMultiplier: 1.5
-  jumpForce: 1
   gravity: -9.81
-  playerCamera: {fileID: 23065837434039636}
-  mouseSensivity: 2
-  mouseVerticalClamp: 90
-  jumpKey: 32
-  runKey: 304
-  footstepSource: {fileID: 3350194696528399284}
-  groundCheckDistance: 1.5
-  footstepRate: 1.4
-  runningFootstepRate: 1.8
-  groundLayers:
-  - layerName: Grass
-    groundTextures:
-    - {fileID: 2800000, guid: d3d12a5c44f10ef49bce5c0cddb59bf8, type: 3}
-    - {fileID: 2800000, guid: dce1c81ac5c882b4ea4096250ea73bd0, type: 3}
-    footstepSounds:
-    - {fileID: 8300000, guid: f0c02e5bc39799a44958457031464f19, type: 3}
-    - {fileID: 8300000, guid: dbafedb7a32049848b25bc73d49bea31, type: 3}
-    - {fileID: 8300000, guid: 55541c9f6e0419842b903c12ed745f33, type: 3}
-    - {fileID: 8300000, guid: 00e260a481fe16947b91654e2be41330, type: 3}
-    - {fileID: 8300000, guid: dbc548ade0e65f043942f25ab59f33f9, type: 3}
-  - layerName: Dirt
-    groundTextures:
-    - {fileID: 2800000, guid: ee01b87695c42284cad301623abc3c22, type: 3}
-    - {fileID: 2800000, guid: 599913b2e4ce6094abec3e56f55d4399, type: 3}
-    - {fileID: 2800000, guid: 321a0add91d02e14dbc7b950f0d91e63, type: 3}
-    footstepSounds:
-    - {fileID: 8300000, guid: 7a75790979eba2d4d94aa4abb7b7e96b, type: 3}
-    - {fileID: 8300000, guid: 200834ed15c4f1542bf1933a16ccb8ac, type: 3}
-    - {fileID: 8300000, guid: cbf3d36b0c254c346b36f7f820f4460d, type: 3}
-    - {fileID: 8300000, guid: 860f4b6e9d98c5f42ab7a86535b4b8d5, type: 3}
-    - {fileID: 8300000, guid: c0860d43559cba9469a3b90eff151c1c, type: 3}
-  - layerName: Stone
-    groundTextures:
-    - {fileID: 2800000, guid: 2b47f2696e9ccfa4cac3f18a1e969cfe, type: 3}
-    - {fileID: 2800000, guid: 2daed08951da0b14d85cdceaf878900c, type: 3}
-    - {fileID: 2800000, guid: 797754f24015e2546823c4d42c8f1470, type: 3}
-    - {fileID: 2800000, guid: 42fd99d1b31463e46a7a31604ee37dfb, type: 3}
-    - {fileID: 2800000, guid: 03cecdafc3c2f254eb678fd04d36d3db, type: 3}
-    - {fileID: 2800000, guid: dc2bc297b0448bb45b4ef8c435f6943a, type: 3}
-    - {fileID: 2800000, guid: 3a64d5c9a11991b4eac90b8df79fecdc, type: 3}
-    - {fileID: 2800000, guid: adfc3bc9e5b50464f83aea96fbddb4ca, type: 3}
-    - {fileID: 2800000, guid: fe9b7ef0bfb50454ca5d56cf9bb0f12e, type: 3}
-    footstepSounds:
-    - {fileID: 8300000, guid: 03e16bfc3867ab742b657020c6d300b8, type: 3}
-    - {fileID: 8300000, guid: 06f146d10663b244d9a48d820c341763, type: 3}
-    - {fileID: 8300000, guid: 15b17286776be8a46bd1dacbbb28ed0c, type: 3}
-    - {fileID: 8300000, guid: 1340c4020d32c4c4a9eefde3a90793a8, type: 3}
-    - {fileID: 8300000, guid: cd8ddb4fad2fc724c9357e669bddb2da, type: 3}
-  - layerName: Wood
-    groundTextures:
-    - {fileID: 2800000, guid: 2449a2ef79f8eb94eb3527f2ebb7b0f7, type: 3}
-    - {fileID: 2800000, guid: 5aaab05814f258b4f91014cd8ac2bc7b, type: 3}
-    - {fileID: 2800000, guid: 6bed64f1ea9763345b90ced1d6f5345e, type: 3}
-    - {fileID: 2800000, guid: 1b314c2bebf2ab84ba31d3489029d46e, type: 3}
-    - {fileID: 2800000, guid: 472793615252a404cab9325b6b9d36f7, type: 3}
-    - {fileID: 2800000, guid: 03626c2451409ce43975b2a2649c8ea3, type: 3}
-    - {fileID: 2800000, guid: 1b26863b8cc2d61459d77919fbe3ad9d, type: 3}
-    - {fileID: 2800000, guid: 7dfae4a0ca830ba45b53944d0a5ec3be, type: 3}
-    - {fileID: 2800000, guid: 2f125da571278b64b8ba6fe750356134, type: 3}
-    - {fileID: 2800000, guid: ff68cd20dc12f604e8aa4a594c23cde9, type: 3}
-    - {fileID: 2800000, guid: 2c143dc2397cdcc44bb4188ce1175169, type: 3}
-    - {fileID: 2800000, guid: 29c35ff19cf53594988dbf82e94c693c, type: 3}
-    - {fileID: 2800000, guid: 1e24acd89187e5f4faf78261d657f116, type: 3}
-    - {fileID: 2800000, guid: b27f3fe1f224294419343b7b833e238d, type: 3}
-    - {fileID: 2800000, guid: f7205111f3812774298a866c67190335, type: 3}
-    - {fileID: 2800000, guid: ab4be49a0402f94468747c681443b772, type: 3}
-    - {fileID: 2800000, guid: d902291c76df5f44287f4f22f3b445d3, type: 3}
-    - {fileID: 2800000, guid: 743164f487fd5b84aba21203978c5dc3, type: 3}
-    - {fileID: 2800000, guid: 6823508417480c2499503e13ec215558, type: 3}
-    - {fileID: 2800000, guid: 71f66fa6d17d71043926e589c366762f, type: 3}
-    - {fileID: 2800000, guid: 2cb5b0fc97e5fee4aacdc8532b520d07, type: 3}
-    - {fileID: 2800000, guid: 0d6897b120eb7004e9f5ce6dc9a8a50b, type: 3}
-    footstepSounds:
-    - {fileID: 8300000, guid: 8a0be01796b323e43a8fda59acb405a6, type: 3}
-    - {fileID: 8300000, guid: d0f177050f3466142be61b88fb9de67c, type: 3}
-    - {fileID: 8300000, guid: 263b8d46578913d4fbb9795eaaa80686, type: 3}
-    - {fileID: 8300000, guid: ed4aca9eacf69aa43a7e767375cf3fe1, type: 3}
-    - {fileID: 8300000, guid: 9bb43b77de433bc40a5f7cec7656fb66, type: 3}
 --- !u!114 &5018523599851366309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +292,7 @@ GameObject:
   - component: {fileID: 23065837434039636}
   - component: {fileID: 2496860388904737790}
   - component: {fileID: 8765461212913055653}
-  - component: {fileID: 3810384679795191531}
+  - component: {fileID: 6926714794671870428}
   m_Layer: 0
   m_Name: Controller Camera
   m_TagString: MainCamera
@@ -375,14 +307,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3810384679795191529}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4432251397514502655}
   - {fileID: 8948507211155965556}
   m_Father: {fileID: 3810384679533872105}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &23065837434039636
 Camera:
@@ -398,9 +331,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -443,7 +384,7 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3810384679795191529}
   m_Enabled: 1
---- !u!114 &3810384679795191531
+--- !u!114 &6926714794671870428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,57 +393,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 3810384679795191529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 3810384679795191530}
-  volumeLayer:
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 3
-  temporalAntialiasing:
-    jitterSpread: 0.95
-    sharpness: 0.15
-    stationaryBlending: 0.95
-    motionBlending: 0.7
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
+  m_VolumeTrigger: {fileID: 3810384679795191530}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
+  m_AntialiasingQuality: 2
+  m_StopNaN: 1
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &3960978376685592735
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,12 +451,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3960978376685592735}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3810384679795191530}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5744429046571424539
 GameObject:
@@ -562,9 +488,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7782932201112201217}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -594,6 +520,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -656,11 +583,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9217747152845216086}
   - {fileID: 7782932201112201217}
   m_Father: {fileID: 3810384679795191530}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -684,7 +611,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -710,6 +639,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5077755897169641119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,9 +685,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8948507211155965556}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -787,6 +717,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
