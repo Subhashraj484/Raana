@@ -41,7 +41,7 @@ public class CatVisibility : MonoBehaviour
         float distance = Mathf.Abs(Vector3.Distance(transform.position , player.position));
         
 
-        if(distance > range & !visible)
+        if(distance > range)
         {
             gameUI.ShowGameOverPanel();
         }
