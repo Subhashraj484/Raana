@@ -42,8 +42,10 @@ namespace Cyan
 			private RenderTargetIdentifier source { get; set; }
 			private RenderTargetIdentifier destination { get; set; }
 
-			RenderTargetHandle m_TemporaryColorTexture;
-			RenderTargetHandle m_DestinationTexture;
+            [System.Obsolete]
+            RenderTargetHandle m_TemporaryColorTexture;
+            [System.Obsolete]
+            RenderTargetHandle m_DestinationTexture;
 			string m_ProfilerTag;
 
 #if !UNITY_2020_2_OR_NEWER // v8

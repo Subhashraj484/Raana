@@ -2,9 +2,9 @@
 using UnityEditor;
 using UnityEngine;
 
-public class ScreenCaptureEditor : EditorWindow
+public class ScreenCaptureEditor 
 {
-    private static string directory = "Screenshots/Capture/";
+    /*private static string directory = "Screenshots/Capture/";
     private static string latestScreenshotPath = "";
     private bool initDone = false;
 
@@ -76,6 +76,6 @@ public class ScreenCaptureEditor : EditorWindow
         Vector2 size = UnityEditor.Handles.GetMainGameViewSize();
         Vector2Int sizeInt = new Vector2Int((int)size.x, (int)size.y);
         return $"{sizeInt.x.ToString()}x{sizeInt.y.ToString()}";
-    }
+    }*/
 
 }

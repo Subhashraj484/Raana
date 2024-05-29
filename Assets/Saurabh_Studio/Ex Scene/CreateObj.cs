@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class CreateObj : MonoBehaviour {
 
-	public Image PP;
+	/*public Image PP;
 	public Sprite[] temp;
 	public GameObject parent;
 	public Color[] colorList;
@@ -29,12 +29,13 @@ public class CreateObj : MonoBehaviour {
 
 	}
 
-	static void CreateNew(GameObject obj, string localPath)
+    [System.Obsolete]
+    static void CreateNew(GameObject obj, string localPath)
 	{
 		//Create a new prefab at the path given
 		Object prefab = PrefabUtility.CreatePrefab(localPath, obj);
 		PrefabUtility.ReplacePrefab(obj, prefab, ReplacePrefabOptions.ConnectToPrefab);
-	}
+	}*/
 	
 
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class QuickAnimSetting : EditorWindow
+public class QuickAnimSetting 
 {
 
-    ClipSettings[] clipSettings = new ClipSettings[255];
+    /*ClipSettings[] clipSettings = new ClipSettings[255];
     ModelImporter lastSelected;
 
     private Vector2 scrollPos;
@@ -183,5 +183,5 @@ public class QuickAnimSetting : EditorWindow
 
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
-    }
+    }*/
 }

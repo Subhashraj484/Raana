@@ -8,7 +8,7 @@ using System;
 public class Demo_Script : MonoBehaviour
 {
 
-    [Header("Textures:")]
+   /* [Header("Textures:")]
     Texture[] ninjaTextures;
     Texture[] ninjaNormals;
     Texture[] ninjaSpeculars;
@@ -131,5 +131,5 @@ public class Demo_Script : MonoBehaviour
     void ChangeTexture(string meshName, Texture texture)
     {
         GameObject.Find(meshName).GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", texture);
-    }
+    }*/
 }
