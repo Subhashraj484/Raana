@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.iOS;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class CatVisibility : MonoBehaviour
 {
     [SerializeField] bool canDetect;
     [SerializeField] float range = 20f;
+    [SerializeField] SplineAnimate splineAnimate;
+    public DifficultyLevel difficultyLevel;
     bool visible;
 
     bool done;
@@ -15,6 +19,9 @@ public class CatVisibility : MonoBehaviour
     private void Start() {
         gameUI = GameUI.Instance;
         player = gameUI.Player.transform;
+
+        range = difficultyLevel.F_difficultyRange;
+        splineAnimate.Duration = difficultyLevel.F_duration;
     }
 
     private void OnBecameVisible() {
